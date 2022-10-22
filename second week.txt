@@ -1,0 +1,447 @@
+// Second Week assienment
+// Aggregation 
+// Association
+// Composition
+
+// by M Qais
+
+
+// Association 
+
+package MyPackage;
+import java.util.*; 
+ 
+class CityClass {
+      
+    private String cityName;
+  
+    public String getCityName() {
+        return cityName;
+    }
+  
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+    @Override
+    public String toString() {
+        return cityName;
+    }
+}
+ 
+class State {
+      
+    private String stateName;
+     
+    List<CityClass> citys;
+  
+    public String getStateName() {
+        return stateName;
+    }
+  
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
+    }
+    public List<CityClass> getCities() {
+        return citys;
+    }
+    public void setState(List<CityClass> citys) {
+        this.citys = citys;
+    }
+     
+}
+ 
+public class AssociationExample {
+ 
+      public static void main(String[] args) {
+            State state = new State();
+            state.setStateName("California");
+             
+             
+           CityClass city = new CityClass();
+            city.setCityName("Los Angeles");
+            CityClass city2 = new CityClass();
+            city2.setCityName("San Diago");
+             
+            List<CityClass> empList = new ArrayList<CityClass>();
+            empList.add(city);
+            empList.add(city2);
+             
+             
+            state.setState(empList);
+             
+             
+            System.out.println(state.getCities()+" are cities in the state "+
+                    state.getStateName());
+        }
+      
+ 
+}
+
+
+// Class 3
+// Main class
+class GFG {
+ 
+    // Main driver method
+    public static void main(String[] args)
+    {
+ 
+        // Creating objects of Book class inside main()
+        // method Custom inputs
+        Book b1
+            = new Book("EffectiveJ Java", "Joshua Bloch");
+        Book b2
+            = new Book("Thinking in Java", "Bruce Eckel");
+        Book b3 = new Book("Java: The Complete Reference",
+                           "Herbert Schildt");
+ 
+        // Creating the list which contains number of books
+        List<Book> books = new ArrayList<Book>();
+ 
+        // Adding books
+        // using add() method
+        books.add(b1);
+        books.add(b2);
+        books.add(b3);
+ 
+        Library library = new Library(books);
+ 
+        // Calling method to get total books in library
+        // and storing it in list of user0defined type -
+        // Books
+        List<Book> bks = library.getTotalBooksInLibrary();
+ 
+        // Iterating over books using for each loop
+        for (Book bk : bks) {
+ 
+            // Printing the title and author name of book on
+            // console
+            System.out.println("Title : " + bk.title
+                               + " and "
+                               + " Author : " + bk.author);
+        }
+    }
+}
+    // Attributes of student
+    String name;
+    int id;
+    String dept;
+ 
+    // Constructor of student class
+    Student(String name, int id, String dept)
+    {
+ 
+        // This keyword refers to current instance itself
+        this.name = name;
+        this.id = id;
+        this.dept = dept;
+    }
+}
+ 
+// Class 2
+// Department class contains list of student objects
+// It is associated with student class through its Objects
+class Department {
+    // Attributes of Department class
+    String name;
+    private List<Student> students;
+    Department(String name, List<Student> students)
+    {
+        // this keyword refers to current instance itself
+        this.name = name;
+        this.students = students;
+    }
+ 
+    // Method of Department class
+    public List<Student> getStudents()
+    {
+        // Returning list of user defined type
+        // Student type
+        return students;
+    }
+}
+ 
+// Class 3
+//  Institute class contains list of Department
+// Objects. It is associated with Department
+// class through its Objects
+class Institute {
+ 
+    // Attributes of Institute
+    String instituteName;
+    private List<Department> departments;
+ 
+    // Constructor of institute class
+    Institute(String instituteName,List<Department> departments)
+    {
+        // This keyword refers to current instance itself
+        this.instituteName = instituteName;
+        this.departments = departments;
+    }
+ 
+    // Method of Institute class
+    // Counting total students of all departments
+    // in a given institute
+    public int getTotalStudentsInInstitute()
+    {
+        int noOfStudents = 0;
+        List<Student> students;
+ 
+        for (Department dept : departments) {
+            students = dept.getStudents();
+ 
+            for (Student s : students) {
+                noOfStudents++;
+            }
+        }
+ 
+        return noOfStudents;
+    }
+}
+ 
+// Class 4
+// main class
+class GFG {
+ 
+    // main driver method
+    public static void main(String[] args)
+    {
+        // Creating object of Student class inside main()
+        Student s1 = new Student("Mia", 1, "CSE");
+        Student s2 = new Student("Priya", 2, "CSE");
+        Student s3 = new Student("John", 1, "EE");
+        Student s4 = new Student("Rahul", 2, "EE");
+ 
+        // Creating a List of CSE Students
+        List<Student> cse_students = new ArrayList<Student>();
+ 
+        // Adding CSE students
+        cse_students.add(s1);
+        cse_students.add(s2);
+ 
+        // Creating a List of EE Students
+        List<Student> ee_students
+            = new ArrayList<Student>();
+ 
+        // Adding EE students
+        ee_students.add(s3);
+        ee_students.add(s4);
+ 
+        // Creating objects of EE and CSE class inside
+        // main()
+        Department CSE = new Department("CSE", cse_students);
+        Department EE = new Department("EE", ee_students);
+ 
+        List<Department> departments = new ArrayList<Department>();
+        departments.add(CSE);
+        departments.add(EE);
+ 
+        // Lastly creating an instance of Institute
+        Institute institute = new Institute("BITS", departments);
+ 
+        // Display message for better readability
+        System.out.print("Total students in institute: ");
+ 
+        // Calling method to get total number of students
+        // in institute and printing on console
+        System.out.print(institute.getTotalStudentsInInstitute());
+    }
+}
+
+
+// Aggregation
+
+import java.io.*;
+import java.util.*;
+ 
+class Student {
+ 
+ 
+    String name;
+    int id;
+    String dept;
+ 
+
+    Student(String name, int id, String dept)
+    {
+ 
+      
+        this.name = name;
+        this.id = id;
+        this.dept = dept;
+    }
+}
+ 
+
+class Department {
+   
+    String name;
+    private List<Student> students;
+    Department(String name, List<Student> students)
+    {
+        // this keyword refers to current instance itself
+        this.name = name;
+        this.students = students;
+    }
+ 
+  
+    public List<Student> getStudents()
+    {
+        
+        return students;
+    }
+}
+ 
+class Institute {
+ 
+   
+    String instituteName;
+    private List<Department> departments;
+ 
+
+    Institute(String instituteName,List<Department> departments)
+    {
+      
+        this.instituteName = instituteName;
+        this.departments = departments;
+    }
+ 
+    public int getTotalStudentsInInstitute()
+    {
+        int noOfStudents = 0;
+        List<Student> students;
+ 
+        for (Department dept : departments) {
+            students = dept.getStudents();
+ 
+            for (Student s : students) {
+                noOfStudents++;
+            }
+        }
+ 
+        return noOfStudents;
+    }
+}
+
+class GFG {
+ 
+
+    public static void main(String[] args)
+    {
+      
+        Student s1 = new Student("Mia", 1, "CSE");
+        Student s2 = new Student("Priya", 2, "CSE");
+        Student s3 = new Student("John", 1, "EE");
+        Student s4 = new Student("Rahul", 2, "EE");
+ 
+       
+        List<Student> cse_students = new ArrayList<Student>();
+ 
+      
+        cse_students.add(s1);
+        cse_students.add(s2);
+ 
+       
+        List<Student> ee_students
+            = new ArrayList<Student>();
+ 
+       
+        ee_students.add(s3);
+        ee_students.add(s4);
+ 
+       
+        Department CSE = new Department("CSE", cse_students);
+        Department EE = new Department("EE", ee_students);
+ 
+        List<Department> departments = new ArrayList<Department>();
+        departments.add(CSE);
+        departments.add(EE);
+ 
+       
+        Institute institute = new Institute("BITS", departments);
+ 
+        // Display message for better readability
+        System.out.print("Total students in institute: ");
+ 
+        
+        System.out.print(institute.getTotalStudentsInInstitute());
+    }
+}
+
+
+// Composition 
+
+import java.io.*;
+import java.util.*;
+
+class Book {
+ 
+  
+    public String title;
+    public String author;
+ 
+
+    Book(String title, String author)
+    {
+ 
+        this.title = title;
+        this.author = author;
+    }
+}
+ 
+
+class Library {
+ 
+    private final List<Book> books;
+ 
+   
+    Library(List<Book> books)
+    {
+ 
+      
+        this.books = books;
+    }
+ 
+
+    public List<Book> getTotalBooksInLibrary()
+    {
+ 
+        return books;
+    }
+}
+
+class GFG {
+ 
+ 
+    public static void main(String[] args)
+    {
+ 
+        Book b1
+            = new Book("EffectiveJ Java", "Joshua Bloch");
+        Book b2
+            = new Book("Thinking in Java", "Bruce Eckel");
+        Book b3 = new Book("Java: The Complete Reference",
+                           "Herbert Schildt");
+ 
+       
+        List<Book> books = new ArrayList<Book>();
+ 
+    
+        books.add(b1);
+        books.add(b2);
+        books.add(b3);
+ 
+        Library library = new Library(books);
+ 
+        List<Book> bks = library.getTotalBooksInLibrary();
+ 
+    
+        for (Book bk : bks) {
+ 
+         
+            System.out.println("Title : " + bk.title
+                               + " and "
+                               + " Author : " + bk.author);
+        }
+    }
+}
