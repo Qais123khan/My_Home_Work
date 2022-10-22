@@ -1,0 +1,75 @@
+// Fisr Week 
+// mutable 
+// immutable 
+// This keyword 
+
+// by M Qais 
+
+// This keyword
+
+class this_Test
+{
+     int val1;
+     int val2;
+ 
+    // Parameterized constructor
+    this_Test(int val1, int val2)
+    {
+        this.val1 = val1 + val1;
+        this.val2 = val2 + val2;
+    }
+ 
+   void display()
+    {
+          System.out.println("Value val1 = " + val1 + " Value val2 = " + val2);
+    }
+}
+ 
+class Main{
+ 
+       public static void main(String[] args)
+       {
+            this_Test object = new this_Test(5,10);
+            object.display();
+       }
+}
+
+
+// mutable class
+
+public class JtpExample {  
+    private String s;  
+    JtpExample(String s) {  
+    this.s = s;  
+    }  
+    public String getName() {  
+    return s;  
+    }  
+    public void setName(String coursename) {  
+    this.s = coursename;  
+    }  
+    public static void main(String[] args) {  
+    JtpExample obj = new JtpExample("JavaTpoint");  
+    System.out.println(obj.getName());  
+  
+    obj.setName("Java Training");  
+    System.out.println(obj.getName());  
+    }  
+    }  
+
+//
+ Immutable class
+public class JtpExample1 {  
+        private final String s;  
+        JtpExample1(final String s) {  
+        this.s = s;  
+        }  
+        public final String getName() {  
+        return s;  
+        }  
+        public static void main(String[] args) {  
+        JtpExample obj = new JtpExample("Core Java Training");  
+        System.out.println(obj.getName());  
+        }  
+        }  
+
