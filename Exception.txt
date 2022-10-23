@@ -1,0 +1,77 @@
+   // By M Qais //
+// Exception handling
+
+public class ExceptionTest {
+
+    public static void main(String args[])
+    {
+
+        try {
+
+            Class.forName("FindMissingClass");
+        }
+
+        catch (ClassNotFoundException ex) {
+
+            ex.printStackTrace();
+        }
+    }
+}
+
+
+/////
+
+class ExceptionTest
+{
+    public void method1(String firstString)
+    {
+        System.out.println(firstString)
+    }
+}
+
+public class BadMethodCall
+{
+    public static void main(string[] args)
+    {
+        ExceptionTest obj = new ExceptionTest();
+        obj.method1("This is the first method");
+        obj.method2("This is the missiong method");
+    }
+}
+
+/////
+
+class InterruptedThread extends Thread {
+
+    public void run() {
+        try {
+            Thread.sleep(100);
+        }
+        catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
+}
+
+public class InterruptedExceptionTest {
+
+    public static void main(String[] args) {
+        InterruptedThread sleepingthread = new InterruptedThread();
+        sleepingthread.start();
+        sleepingthread.interrupt();
+    }
+}
+
+public class ExceptionTest {
+
+  public static void main(String[] args) {
+    try {
+        int divbyzero = 1/0;
+    }
+    catch (ArithmeticException ex) {
+        ex.printStackTrace();
+        System.out.println("ERROR: Divide by zero");
+    }
+  }
+}
+
