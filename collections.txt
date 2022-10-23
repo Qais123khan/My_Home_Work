@@ -1,0 +1,779 @@
+       //By M Qais //
+//Set Interface
+//List Interface
+//Queue Interface
+//Deque Interface
+//Map Interface
+//Sortedset Interface
+//Sortedmap Interface
+//HashSet Class
+//TreeSet
+//One-Dimensional Array
+//Two-Dimensional Array
+package Simplilearn;
+//Three/Multi-Dimensional Array
+//Doubly LinkedList
+//Circular LinkedList
+//HashMap Class
+//TreeMap Class
+
+
+import java.util.*;
+
+public class SetExample {
+
+public static void main(String args[]) {
+
+int count[] = { 21, 23, 43, 53, 22, 65 };
+
+Set<Integer> set = new HashSet<Integer>();
+
+try {
+
+for (int i = 0; i <= 5; i++) {
+
+set.add(count[i]);
+
+}
+
+System.out.println(set);
+
+TreeSet<Integer> sortedSet = new TreeSet<Integer>(set);
+
+System.out.println("The sorted list is:");
+
+System.out.println(sortedSet);
+
+System.out.println("First element of the set is: " + (Integer) sortedSet.first());
+
+System.out.println("last element of the set is: " + (Integer) sortedSet.last());
+
+} catch (Exception e) {
+
+}
+
+}
+
+}
+
+
+////////////
+
+//List Interface
+
+package Simplilearn;
+
+import java.util.*;
+
+public class ListInterface {
+
+public static void main(String args[]) {
+
+List<String> list = new ArrayList<String>();
+
+list.add("David");
+
+list.add("Jhon");
+
+list.add("Stacy");
+
+//list.add("Stacy");
+
+for (String Students : list)
+
+System.out.println(Students);
+
+}
+
+}
+
+/////////
+
+//Queue Interface
+
+package Simplilearn;
+
+import java.util.*;
+
+public class QueueInterface {
+
+public static void main(String[] args) {
+
+Queue<String> queue = new LinkedList<>();
+
+queue.add("Apple");
+
+queue.add("Mango");
+
+queue.add("Grapes");
+
+queue.add("Banana");
+
+System.out.println(queue);
+
+queue.remove("Grapes");
+
+System.out.println(queue);
+
+System.out.println("Queue total Size: " + queue.size());
+
+System.out.println("Queue includes fruit 'Apple'? : " + queue.contains("Apple"));
+
+queue.clear();
+
+}
+
+}
+
+//////////
+
+//Deque Interface
+
+package Simplilearn;
+
+import java.util.ArrayDeque;
+
+import java.util.Deque;
+
+public class DequeInterface {
+
+public static void main(String[] args) {
+
+Deque<Integer> num = new ArrayDeque<>();
+
+num.offer(10);
+
+num.offerLast(21);
+
+num.offerFirst(52);
+
+System.out.println("Deque elements: " + num);
+
+int first = num.peekFirst();
+
+System.out.println("First Element is: " + first);
+
+int lastElement = num.peekLast();
+
+System.out.println("Last Element: " + lastElement);
+
+int removed = num.pollFirst();
+
+System.out.println("Removed First Element: " + removed);
+
+System.out.println("Updated Deque is: " + num);
+
+}
+
+}
+
+///////////
+
+//Map Interface
+
+package Simplilearn;
+
+import java.util.*;
+
+import java.util.Map.Entry;
+
+public class MapInterface {
+
+public static void main(String args[]) {
+
+Map<Integer, String> map = new HashMap<Integer, String>();
+
+map.put(1, "Cricket");
+
+map.put(2, "Hockey");
+
+map.put(3, "Archery");
+
+for (Iterator<Entry<Integer, String>> iterator = map.entrySet().iterator(); iterator.hasNext();) {
+
+Entry<Integer, String> m = iterator.next();
+
+System.out.println(m.getKey() + " " + m.getValue());
+
+}
+
+}
+
+}
+
+///////////
+
+//Sortedset Interface
+
+package Simplilearn;
+
+import java.util.*;
+
+public class SortedSetInterface {
+
+   public static void main(String[] args) {
+
+      SortedSet set = new TreeSet(); 
+
+      set.add("Bob");
+
+      set.add("Sean");
+
+      set.add("Jennifer");
+
+      Iterator i = set.iterator();
+
+      while (i.hasNext()) {
+
+      Object element = i.next();
+
+      System.out.println(element.toString());
+
+      }
+
+   }
+
+}
+
+/////////
+
+//Sortedmap Interface
+
+package Simplilearn;
+
+import java.util.*;
+
+public class SortedMapInterface {
+
+   public static void main(String args[]) {
+
+      TreeMap<String, Double> t = new TreeMap<String, Double>();
+
+      t.put("John", new Double(76.5));
+
+      t.put("Molley", new Double(87.3));
+
+      t.put("Aron", new Double(78.2));
+
+      t.put("Daisy", new Double(73.4));
+
+      Set<?> set = t.entrySet();
+
+      Iterator<?> i = set.iterator();
+
+      while(i.hasNext()) {
+
+         @SuppressWarnings("rawtypes")
+
+Map.Entry me = (Map.Entry)i.next();
+
+         System.out.print(me.getKey() + ": ");
+
+         System.out.println(me.getValue());
+
+      }
+
+      System.out.println();
+
+      double percentage = ((Double)t.get("Molley")).doubleValue();
+
+      t.put("Molley", new Double(percentage));
+
+      System.out.println("Zara's new balance: " + t.get("Molley"));
+
+   }
+
+}
+
+/////////
+
+//HashSet Class
+
+package Simplilearn;
+
+import java.util.HashSet;
+
+public class HashSetClass {
+
+public static void main(String args[]) {
+
+HashSet<String> hset = new HashSet<String>();
+
+hset.add("Suzuki");
+
+hset.add("Kawasaki");
+
+hset.add("Honda");
+
+hset.add("Ducati");
+
+hset.add("Yamaha");
+
+hset.add("Yamaha");
+
+hset.add("Suzuki");
+
+hset.add(null);
+
+hset.add(null);
+
+// Displaying HashSet elements
+
+System.out.println(hset);
+
+}
+
+}
+
+////////////
+
+//TreeSet
+
+package Simplilearn;
+
+import java.util.TreeSet;
+
+public class TreeSetClass {
+
+     public static void main(String args[]) {
+
+         TreeSet<Integer> treeset = new TreeSet<Integer>();
+
+         treeset.add(8476);
+
+         treeset.add(748);
+
+         treeset.add(88);
+
+         treeset.add(983);
+
+         treeset.add(18);
+
+         treeset.add(0);
+
+         System.out.println(treeset);
+
+    }
+
+ }
+
+/////////
+
+//One-Dimensional Array
+
+package Simplilearn;
+
+public class OneDA {
+
+public static void main(String args[]) {
+
+int[] a = new int[3];
+
+a[0] = 10;
+
+a[1] = 20;
+
+a[2] = 30;
+
+System.out.println("One dimensional array");
+
+System.out.println(a[0]);
+
+System.out.println(a[1]);
+
+System.out.println(a[2]);
+
+}
+
+}
+
+//////////
+
+//Two-Dimensional Array
+
+package Simplilearn;
+
+public class TwoDA {
+
+public static void main(String[] args) {
+
+int[][] arr = { { 1, 2 }, { 3, 4 } };
+
+for (int i = 0; i < 2; i++)
+
+for (int j = 0; j < 2; j++)
+
+System.out.println("arr[" + i + "][" + j + "] = " + arr[i][j]);
+
+}
+
+}
+
+///////
+
+//Three/Multi-Dimensional Array
+
+package Simplilearn;
+
+public class ThreeDA {
+
+public static void main(String args[]) {
+
+int A[][] = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+
+for (int i = 0; i < 3; i++) {
+
+for (int j = 0; j < 3; j++) {
+
+System.out.print(A[i][j] + " ");
+
+}
+
+System.out.println();
+
+}
+
+}
+
+}
+
+/////////
+//Singly-LinkedList
+
+package Simplilearn;
+
+public class SiinglyLinkedList {
+
+Node head;
+
+static class Node {
+
+int data;
+
+Node next;
+
+Node(int d) {
+
+data = d;
+
+next = null;
+
+}
+
+}
+
+public void display() {
+
+Node n = head;
+
+while (n != null) {
+
+System.out.print(n.data + " ");
+
+n = n.next;
+
+}
+
+}
+
+public static void main(String[] args) {
+
+SiinglyLinkedList list = new SiinglyLinkedList();
+
+list.head = new Node(1);
+
+Node second = new Node(2);
+
+Node third = new Node(3);
+
+Node fourth = new Node(4);
+
+list.head.next = second;
+
+second.next = third;
+
+third.next = fourth;
+
+list.display();
+
+}
+
+}
+
+/////////
+/Doubly LinkedList
+
+package Simplilearn;
+
+public class DoublyLinkedList {
+
+class Node {
+
+int data;
+
+Node previous;
+
+Node next;
+
+public Node(int data) {
+
+this.data = data;
+
+}
+
+}
+
+Node head, tail = null;
+
+public void addNode(int data) {
+
+Node newNode = new Node(data);
+
+if (head == null) {
+
+head = tail = newNode;
+
+head.previous = null;
+
+tail.next = null;
+
+} else {
+
+tail.next = newNode;
+
+newNode.previous = tail;
+
+tail = newNode;
+
+tail.next = null;
+
+}
+
+}
+
+public void display() {
+
+Node current = head;
+
+if (head == null) {
+
+System.out.println("List is empty");
+
+return;
+
+}
+
+System.out.println("Nodes of doubly linked list: ");
+
+while (current != null) {
+
+System.out.print(current.data + " ");
+
+current = current.next;
+
+}
+
+}
+
+public static void main(String[] args) {
+
+DoublyLinkedList dList = new DoublyLinkedList();
+
+dList.addNode(1);
+
+dList.addNode(2);
+
+dList.addNode(3);
+
+dList.addNode(4);
+
+dList.addNode(5);
+
+dList.display();
+
+}
+
+}
+
+////////
+
+//Circular LinkedList
+
+package Simplilearn;
+
+public class CLL {  
+
+    public class Node{  
+
+        int data;  
+
+        Node next;  
+
+        public Node(int data) {  
+
+            this.data = data;  
+
+        }  
+
+    }  
+
+  
+
+    public Node head = null;  
+
+    public Node tail = null;  
+
+  
+
+    public void add(int data){  
+
+        Node newNode = new Node(data);  
+
+        if(head == null) {  
+
+            head = newNode;  
+
+            tail = newNode;  
+
+            newNode.next = head;  
+
+        }  
+
+        else {  
+
+            tail.next = newNode;  
+
+            tail = newNode;  
+
+            tail.next = head;  
+
+        }  
+
+    }  
+
+  
+
+    public void display() {  
+
+        Node current = head;  
+
+        if(head == null) {  
+
+            System.out.println("List is empty");  
+
+        }  
+
+        else {  
+
+            System.out.println("Nodes of the circular linked list: ");  
+
+             do{  
+
+                System.out.print(" "+ current.data);  
+
+                current = current.next;  
+
+            }while(current != head);  
+
+            System.out.println();  
+
+        }  
+
+    }  
+
+  
+
+    public static void main(String[] args) {  
+
+        CLL c = new CLL();  
+
+        c.add(1);  
+
+        c.add(2);  
+
+        c.add(3);  
+
+        c.add(4);  
+
+        c.add(5);  
+
+        c.add(6);  
+
+        c.add(7);  
+
+        c.add(8);
+
+        c.display();  
+
+    }  
+
+}  
+
+///////
+
+//HashMap Class
+
+package Simplilearn;
+
+import java.util.HashMap;
+
+public class HashMapClass {
+
+public static void main(String[] args) {
+
+HashMap<String, String> Make = new HashMap<String, String>();
+
+Make.put("Honda", "CBR");
+
+Make.put("Kawasaki", "Ninja");
+
+Make.put("Ducati", "Panigale");
+
+Make.put("Yamaha", "R1");
+
+System.out.println(Make);
+
+}
+
+}
+//////////
+/TreeMap Class
+
+ 
+
+package Simplilearn;
+
+ 
+
+import java.util.*;
+
+import java.util.Map.Entry;  
+
+public class TreeMapClass{  
+
+ public static void main(String args[]){  
+
+   TreeMap<Integer,String> map=new TreeMap<Integer,String>();    
+
+      map.put(2019901,"Amber");    
+
+      map.put(2019902,"james");    
+
+      map.put(2019903,"Violet");    
+
+      map.put(2019904,"Reynolds");    
+
+        
+
+      for (Iterator<Entry<Integer, String>> iterator = map.entrySet().iterator(); iterator.hasNext();) {
+
+Entry<Integer, String> m = iterator.next();
+
+System.out.println(m.getKey()+" "+m.getValue());
+
+}    
+
+ }  
+
+}
+
